@@ -45,3 +45,14 @@ def eliminar(request, id):
     producto = Venta.objects.get(id=id)
     producto.delete()
     return redirect('index')
+
+def editar(request, id):  
+    producto = Producto.objects.get(id=id)  
+    form = ProductoForm(request.POST, instance = producto)  
+    if form.is_valid():  
+        form.save()  
+        return redirect("index")
+    else:
+        form = ProductoForm()
+    return render(request, 'mewing/editar.html', {'form': form})  
+
