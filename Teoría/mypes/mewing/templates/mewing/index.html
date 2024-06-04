@@ -40,7 +40,8 @@
                         <td>{{ producto.nombre }}</td> 
                         <td>{{ producto.precio }}</td>
                         <td>{{ producto.stock }}</td> 
-                        <td><a href="delete/{{ employee.id }}">Eliminar</a></td>
+                        <td><a href="{% url 'editar' producto.id %}">Editar</a> <br>
+                            <a href="{% url 'eliminar' producto.id %}">Eliminar</a></td>
                     </tr>
                 {% endfor %}
             </tbody>
